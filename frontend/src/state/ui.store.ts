@@ -1,10 +1,20 @@
 import { create } from 'zustand';
-import { persist, createJSONStorage } from 'zustand/middleware';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { persist, createJSONStorage, StateStorage } from 'zustand/middleware';
+import * as SecureStore from 'expo-secure-store';
+
+// ---------------------------------------------------------------------------
+// Secure storage adapter for Zustand persist middleware.
+// Replaces AsyncStorage to eliminate the @react-native-async-storage dependency.
+// ---------------------------------------------------------------------------
+
+const secureStorage: StateStorage = {
+  getItem: (key: string) => SecureStore.getItemAsync(key),
+  setItem: (key: string, value: string) => SecureStore.setItemAsync(key, value),
+  removeItem: (key: string) => SecureStore.deleteItemAsync(key),
+};
 
 // ---------------------------------------------------------------------------
 // UI store — local preferences that are not security-sensitive.
-// Stored in AsyncStorage (not SecureStore) since none of these values are PII.
 // ---------------------------------------------------------------------------
 
 interface UiState {
@@ -58,7 +68,8 @@ export const useUiStore = create<UiState>()(
     }),
     {
       name: 'ui-prefs',
-      storage: createJSONStorage(() => AsyncStorage),
+      storage: createJSONStorage(() => secureStorage),
     },
   ),
 );
+

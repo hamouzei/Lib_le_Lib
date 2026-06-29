@@ -42,12 +42,32 @@ export const Palette = {
   black: '#000000',
 } as const;
 
-// ---------------------------------------------------------------------------
-// Theme tokens — light and dark
-// Every component reads from here via useTheme(), never from Palette directly.
-// ---------------------------------------------------------------------------
+export interface ThemeColors {
+  background: string;
+  backgroundElement: string;
+  backgroundSelected: string;
+  backgroundElevated: string;
+  text: string;
+  textSecondary: string;
+  textMuted: string;
+  textInverse: string;
+  primary: string;
+  primarySoft: string;
+  primarySubtle: string;
+  success: string;
+  warning: string;
+  error: string;
+  info: string;
+  border: string;
+  borderStrong: string;
+  tabActive: string;
+  tabInactive: string;
+  tabBackground: string;
+}
 
-export const Colors = {
+export type ColorScheme = 'light' | 'dark';
+
+export const Colors: Record<ColorScheme, ThemeColors> = {
   light: {
     // Surfaces
     background: Palette.cream,
@@ -114,11 +134,11 @@ export const Colors = {
     tabInactive: Palette.grey500,
     tabBackground: Palette.dusk,
   },
-} as const;
+};
 
-export type ColorScheme = 'light' | 'dark';
-export type ThemeColors = typeof Colors.light;
 export type ThemeColor = keyof ThemeColors;
+
+
 
 // ---------------------------------------------------------------------------
 // Typography scale
