@@ -1,5 +1,5 @@
 {
-  "name": "frontend",
+  "name": "lib-le-lib",
   "main": "expo-router/entry",
   "version": "1.0.0",
   "dependencies": {
@@ -29,14 +29,12 @@
   },
   "devDependencies": {
     "@types/react": "~19.2.2",
-    "autoprefixer": "^9.8.8",
-    "postcss": "^7.0.39",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17",
     "typescript": "~6.0.3"
   },
   "scripts": {
     "start": "expo start",
     "reset-project": "node ./scripts/reset-project.js",
+    "download:fonts": "node ./scripts/download-fonts.js",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
