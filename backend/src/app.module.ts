@@ -20,6 +20,7 @@ import { ResourcesModule } from './resources/resources.module';
 import { QaModule } from './qa/qa.module';
 import { SubscriptionsModule } from './subscriptions/subscriptions.module';
 import { CompatibilityQuizModule } from './compatibility-quiz/compatibility-quiz.module';
+import { VideoCallsModule } from './video-calls/video-calls.module';
 
 @Module({
   imports: [
@@ -79,6 +80,7 @@ import { CompatibilityQuizModule } from './compatibility-quiz/compatibility-quiz
     QaModule,
     SubscriptionsModule,
     CompatibilityQuizModule,
+    VideoCallsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

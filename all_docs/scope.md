@@ -122,3 +122,22 @@ Done when:
 5. Compatibility Quiz endpoints (GET questions, POST responses) work with seeded data.
 6. Automated E2E test proves mutual match behavior and strict block exclusion.
 ```
+✅ COMPLETED
+
+## Active Scope: Phase 5 — Messaging & Video Calls
+
+```
+# Scope: Phase 5 — Messaging & Video Calls
+
+✓ in:  src/messages/*, src/video-calls/*, test/messages-video-calls.e2e-spec.ts
+✗ out: Full moderation, report system.
+
+Done when:
+1. End-to-end encrypted messaging is supported (server stores ciphertext only).
+2. Device public-key distribution works.
+3. Message read receipts and WS real-time delivery respect `discreet_mode`.
+4. Message attachments follow blur/reveal logic.
+5. Video calls metadata endpoints (scheduling, status update).
+6. Automated E2E test proves chat confidentiality.
+```
+✅ COMPLETED
